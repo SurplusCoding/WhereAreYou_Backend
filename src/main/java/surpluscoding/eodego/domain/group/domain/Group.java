@@ -1,9 +1,9 @@
-package surpluscoding.eodego.domain.group;
+package surpluscoding.eodego.domain.group.domain;
 
 import jakarta.persistence.*;
 
 @Entity
-public class GroupDomain {
+public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer groupId;

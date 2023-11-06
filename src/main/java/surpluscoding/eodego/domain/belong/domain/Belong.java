@@ -1,7 +1,7 @@
 package surpluscoding.eodego.domain.belong.domain;
 
 import jakarta.persistence.*;
-import surpluscoding.eodego.domain.group.domain.Group;
+import surpluscoding.eodego.domain.team.domain.Group;
 import surpluscoding.eodego.domain.user.domain.User;
 
 @Entity
@@ -14,5 +14,5 @@ public class Belong {
     private User userId;
 
     @ManyToOne
-    private Group groupId;
+    private Group teamId;
 }

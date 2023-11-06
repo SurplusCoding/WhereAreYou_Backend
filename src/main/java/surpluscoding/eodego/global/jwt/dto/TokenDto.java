@@ -1,0 +1,14 @@
+package surpluscoding.eodego.global.jwt.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+
+@AllArgsConstructor
+@Data
+@Builder
+public class TokenDto {
+    private String grantType;
+    private String accessToken;
+    private String refreshToken;
+}

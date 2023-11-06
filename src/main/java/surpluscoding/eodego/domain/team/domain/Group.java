@@ -1,4 +1,4 @@
-package surpluscoding.eodego.domain.group.domain;
+package surpluscoding.eodego.domain.team.domain;
 
 import jakarta.persistence.*;
 
@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer groupId;
+    private Integer teamId;
 
     @Column(nullable = false)
     private String name;

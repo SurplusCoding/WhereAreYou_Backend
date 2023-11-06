@@ -1,23 +1,18 @@
 package surpluscoding.eodego.domain.user.controller.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 import surpluscoding.eodego.domain.user.domain.User;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-public class UserRequestDto {
-    private String name;
-    private String email;
-    private String password;
+public record UserRequestDto (
+        String name,
+        String email,
+        String password
+) {
 
-    public User toEntity() {
+    public User toEntity(String password) {
         return User.builder()
                 .name(this.name)
                 .email(this.email)
-                .password(this.password)
+                .password(password)
                 .build();
     }
 }

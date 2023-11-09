@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import surpluscoding.eodego.domain.user.controller.dto.ResponseDto;
 import surpluscoding.eodego.domain.user.controller.dto.UserLoginRequestDto;
 import surpluscoding.eodego.domain.user.controller.dto.UserRequestDto;
 import surpluscoding.eodego.domain.user.domain.User;
@@ -22,7 +23,7 @@ public class UserService {
     private String secretKey;
     Long exp = 1000 * 30 * 60L;
 
-    public String login(UserLoginRequestDto userDto) {
+    public ResponseDto login(UserLoginRequestDto userDto) {
         Optional<User> user = userRepository.findByEmail(userDto.email());
 
         if(user.isEmpty())
@@ -30,7 +31,7 @@ public class UserService {
         if (!passwordEncoder.matches(userDto.password(), user.get().getPassword()))
             throw new IllegalArgumentException("올바르지 않는 비밀번호입니다.");
 
-        return JwtUtil.generateJwt(user.get().getId(), secretKey, exp);
+        return new ResponseDto(JwtUtil.generateJwt(user.get().getId(), secretKey, exp));
     }
 
     public Long addUser(UserRequestDto userRequestDto) {

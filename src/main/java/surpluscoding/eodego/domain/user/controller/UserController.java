@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import surpluscoding.eodego.domain.user.controller.dto.ResponseDto;
 import surpluscoding.eodego.domain.user.controller.dto.UserLoginRequestDto;
 import surpluscoding.eodego.domain.user.controller.dto.UserRequestDto;
 import surpluscoding.eodego.domain.user.service.UserService;
@@ -21,7 +22,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody UserLoginRequestDto userLoginRequestDto) {
+    public ResponseDto login(@RequestBody UserLoginRequestDto userLoginRequestDto) {
         return userService.login(userLoginRequestDto);
     }
 }

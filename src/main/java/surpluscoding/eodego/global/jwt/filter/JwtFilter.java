@@ -1,6 +1,5 @@
 package surpluscoding.eodego.global.jwt.filter;
 
-import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,18 +19,17 @@ public class JwtFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        String token;
+        String token = "";
 
         try {
             token = jwtUtil.resolveJwt(request);
-        } catch (ExpiredJwtException e){
-            throw new RuntimeException("토큰이 만료되었습니다.");
+        } catch (RuntimeException e) {
+            filterChain.doFilter(request, response);
+            return;
         }
 
-        if (token != null) {
-            Authentication authentication = jwtUtil.getAuthentication(token);
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-        }
+        Authentication authentication = jwtUtil.getAuthentication(token);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
 
         filterChain.doFilter(request, response);
     }

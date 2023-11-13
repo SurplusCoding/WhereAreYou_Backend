@@ -19,11 +19,14 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import surpluscoding.eodego.global.jwt.filter.JwtFilter;
+import surpluscoding.eodego.global.jwt.util.JwtUtil;
 
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
+
+    private final JwtUtil jwtUtil;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -50,11 +53,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests(request -> request
                         .requestMatchers(whiteList).permitAll()
                         .anyRequest().authenticated()
-                )
-                ;
+                );
 
         http
-                .addFilterBefore(new JwtFilter(), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(new JwtFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

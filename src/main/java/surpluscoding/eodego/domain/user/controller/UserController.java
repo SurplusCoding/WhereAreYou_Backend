@@ -14,6 +14,7 @@ import surpluscoding.eodego.domain.user.service.UserService;
 @RequiredArgsConstructor
 @RequestMapping("/user")
 public class UserController {
+
     private final UserService userService;
 
     @PostMapping("/signup")

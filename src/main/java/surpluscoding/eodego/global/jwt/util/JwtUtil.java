@@ -26,15 +26,15 @@ public class JwtUtil {
     @Value("${jwt.secret_key}")
     private String secretKey;
 
-    @Value("&{jwt.pre_fix}")
-    private String preFix;
+    @Value("${jwt.prefix}")
+    private String prefix;
 
     public String generateJwt(Long userId) {
         Claims claims = Jwts.claims();
         Date now = new Date();
         claims.put("userId", userId);
 
-        long exp = 1000 * 60 * 30L;
+        long exp = 60 * 1000L;
         return Jwts.builder()
                 .setClaims(claims)
                 .setIssuedAt(now)
@@ -46,8 +46,8 @@ public class JwtUtil {
     public String resolveJwt(HttpServletRequest request) {
         String bearer = request.getHeader("Authorization");
 
-        if (bearer == null || !bearer.startsWith(preFix)) {
-            return null;
+        if (bearer == null || !bearer.startsWith(prefix)) {
+            throw new RuntimeException("히히 니 토큰 널널하네");
         }
 
         return bearer.split(" ")[1].trim();
@@ -55,7 +55,6 @@ public class JwtUtil {
 
     public Authentication getAuthentication(String token) {
         AuthDetails authDetails = (AuthDetails) authDetailsService.loadUserByUsername(extractUserId(token));
-
         return new UsernamePasswordAuthenticationToken(authDetails, token, Collections.emptyList());
     }
 

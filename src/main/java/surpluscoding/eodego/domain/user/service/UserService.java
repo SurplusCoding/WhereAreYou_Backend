@@ -31,12 +31,10 @@ public class UserService {
     }
 
     public Long addUser(UserRequestDto userRequestDto) {
-        if(userRepository.findByEmail(userRequestDto.email())
-                .isPresent()) {
+        if(userRepository.findByEmail(userRequestDto.email()).isPresent()) {
             throw new IllegalArgumentException("이미 존재하는 이메일입니다.");
         }
         String password = passwordEncoder.encode(userRequestDto.password());
-        System.out.println(password);
         return userRepository.save(userRequestDto.toEntity(password)).getId();
     }
 }

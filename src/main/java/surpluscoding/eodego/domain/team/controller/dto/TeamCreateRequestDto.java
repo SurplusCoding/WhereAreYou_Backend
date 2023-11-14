@@ -3,9 +3,7 @@ package surpluscoding.eodego.domain.team.controller.dto;
 import surpluscoding.eodego.domain.team.domain.Team;
 
 public record TeamCreateRequestDto (
-        String name,
-        String manager,
-        String createdTime
+        String name
 ) {
 
     public Team toEntity(String createdTime, String manager) {

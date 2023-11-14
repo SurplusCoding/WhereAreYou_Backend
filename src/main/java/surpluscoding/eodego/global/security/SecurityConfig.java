@@ -34,8 +34,8 @@ public class SecurityConfig {
     }
 
     private final String[] whiteList = {
-            "/user/login",
-            "/user/signup"
+            "/user/signup",
+            "/user/login"
     };
 
     @Bean

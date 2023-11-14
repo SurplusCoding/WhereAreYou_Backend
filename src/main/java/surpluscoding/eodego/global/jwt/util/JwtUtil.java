@@ -34,7 +34,7 @@ public class JwtUtil {
         Date now = new Date();
         claims.put("userId", userId);
 
-        long exp = 60 * 1000L;
+        long exp = 30 * 60 * 1000L;
         return Jwts.builder()
                 .setClaims(claims)
                 .setIssuedAt(now)
@@ -47,7 +47,7 @@ public class JwtUtil {
         String bearer = request.getHeader("Authorization");
 
         if (bearer == null || !bearer.startsWith(prefix)) {
-            throw new RuntimeException("히히 니 토큰 널널하네");
+            return null;
         }
 
         return bearer.split(" ")[1].trim();

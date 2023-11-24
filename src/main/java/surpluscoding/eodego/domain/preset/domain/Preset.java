@@ -1,42 +1,41 @@
-package surpluscoding.eodego.domain.user.domain;
+package surpluscoding.eodego.domain.preset.domain;
 
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import surpluscoding.eodego.domain.user.controller.dto.StatusRequestDto;
+import surpluscoding.eodego.domain.user.domain.User;
 
 @Entity
 @Getter
 @NoArgsConstructor
-public class User {
+public class Preset {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String name;
-
-    @Column(nullable = false, unique = true)
-    private String email;
+    @ManyToOne
+    private User user;
 
     @Column(nullable = false)
-    private String password;
-
     private String place;
 
+    @Column(nullable = false)
     private String howLong;
 
+    @Column(nullable = false)
     private String what;
 
     @Builder
-    public User(String name, String email, String password) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
+    public Preset(User user, String place, String howLong, String what) {
+        this.user = user;
+        this.place = place;
+        this.howLong = howLong;
+        this.what = what;
     }
 
-    public User update(StatusRequestDto statusRequestDto) {
+    public Preset update(StatusRequestDto statusRequestDto) {
         place = statusRequestDto.place();
         howLong = statusRequestDto.howLong();
         what = statusRequestDto.what();

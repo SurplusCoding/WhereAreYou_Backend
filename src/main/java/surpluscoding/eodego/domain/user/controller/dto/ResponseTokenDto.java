@@ -1,5 +1,5 @@
 package surpluscoding.eodego.domain.user.controller.dto;
 
-public record ResponseDto (
+public record ResponseTokenDto (
         String token
-){ }
+) { }

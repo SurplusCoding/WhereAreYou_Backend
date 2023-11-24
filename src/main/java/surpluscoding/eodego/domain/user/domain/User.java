@@ -36,10 +36,10 @@ public class User {
         this.password = password;
     }
 
-    public User update(StatusRequestDto userStatusRequestDto) {
-        place = userStatusRequestDto.place();
-        howLong = userStatusRequestDto.howLong();
-        what = userStatusRequestDto.what();
+    public User update(StatusRequestDto statusRequestDto) {
+        place = statusRequestDto.place();
+        howLong = statusRequestDto.howLong();
+        what = statusRequestDto.what();
         return this;
     }
 }

@@ -1,13 +1,9 @@
 package surpluscoding.eodego.domain.user.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import surpluscoding.eodego.domain.user.controller.dto.ResponseDto;
-import surpluscoding.eodego.domain.user.controller.dto.UserLoginRequestDto;
-import surpluscoding.eodego.domain.user.controller.dto.UserRequestDto;
+import org.springframework.web.bind.annotation.*;
+import surpluscoding.eodego.domain.user.controller.dto.*;
+import surpluscoding.eodego.domain.user.service.UserGetService;
 import surpluscoding.eodego.domain.user.service.UserService;
 
 @RestController
@@ -16,6 +12,7 @@ import surpluscoding.eodego.domain.user.service.UserService;
 public class UserController {
 
     private final UserService userService;
+    private final UserGetService userGetService;
 
     @PostMapping("/signup")
     public Long signup(@RequestBody UserRequestDto userRequestDto) {
@@ -23,7 +20,18 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseDto login(@RequestBody UserLoginRequestDto userLoginRequestDto) {
+    public ResponseTokenDto login(@RequestBody UserLoginRequestDto userLoginRequestDto) {
         return userService.login(userLoginRequestDto);
     }
+
+    @GetMapping
+    public UserResponseDto readUser() {
+        return userGetService.get();
+    }
+
+    @PutMapping("/status")
+    public UserResponseDto updateStatus(@RequestBody StatusRequestDto requestDto) {
+        return userService.setStatus(requestDto);
+    }
+
 }

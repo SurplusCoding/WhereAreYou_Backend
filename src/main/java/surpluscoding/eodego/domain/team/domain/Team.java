@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @NoArgsConstructor
@@ -20,12 +22,12 @@ public class Team {
     private String manager;
 
     @Column(nullable = false)
-    private String createdTime;
+    private LocalDateTime createdTime;
 
     @Builder
-    public Team(String name, String manager, String createdTime) {
+    public Team(String name, String manager) {
         this.name = name;
         this.manager = manager;
-        this.createdTime = createdTime;
+        createdTime = LocalDateTime.now();
     }
 }

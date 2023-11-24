@@ -3,6 +3,7 @@ package surpluscoding.eodego.domain.user.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import surpluscoding.eodego.domain.user.controller.dto.UserResponseDto;
 import surpluscoding.eodego.domain.user.domain.User;
 import surpluscoding.eodego.domain.user.repository.UserRepository;
 
@@ -23,5 +24,10 @@ public class UserGetService {
 
     public String getUserName() {
         return getUser().getName();
+    }
+
+    public UserResponseDto get() {
+        Long userId = getUserId();
+        return new UserResponseDto(userRepository.findById(userId).orElseThrow());
     }
 }

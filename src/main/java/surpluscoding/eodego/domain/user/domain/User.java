@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import surpluscoding.eodego.domain.user.controller.dto.StatusRequestDto;
 
 @Entity
 @Getter
@@ -22,10 +23,23 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    private String place;
+
+    private String howLong;
+
+    private String what;
+
     @Builder
     public User(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;
+    }
+
+    public User update(StatusRequestDto userStatusRequestDto) {
+        place = userStatusRequestDto.place();
+        howLong = userStatusRequestDto.howLong();
+        what = userStatusRequestDto.what();
+        return this;
     }
 }

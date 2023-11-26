@@ -21,9 +21,9 @@ public class UserGetService {
         return userRepository.findById(id).orElseThrow();
     }
 
-    public List<UserResponseDto> getUsers(List<Long> ids) {
+    public List<UserResponseDto> getUsers(List<Long> userIds) {
         List<UserResponseDto> dto = new ArrayList<>();
-        for(Long id : ids) {
+        for(Long id : userIds) {
             dto.add(new UserResponseDto(userRepository.findById(id).orElseThrow()));
         }
         return dto;
@@ -35,14 +35,5 @@ public class UserGetService {
 
     public String getUserName() {
         return getUser().getName();
-    }
-
-    public String getUserStatus() {
-        return getUser().getName();
-    }
-
-    public UserResponseDto get() {
-        Long userId = getUserId();
-        return new UserResponseDto(userRepository.findById(userId).orElseThrow());
     }
 }

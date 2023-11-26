@@ -19,12 +19,12 @@ public class BelongController {
     private final BelongService belongService;
 
     @GetMapping("/{teamId}/user")
-    public List<UserResponseDto> getUsers(@PathVariable Long teamId) {
+    public List<UserResponseDto> users(@PathVariable Long teamId) {
         return belongService.getUsers(teamId);
     }
 
     @GetMapping("/team")
-    public List<TeamResponseDto> getStatus() {
-        return null;
+    public List<TeamResponseDto> teams() {
+        return belongService.getTeams();
     }
 }

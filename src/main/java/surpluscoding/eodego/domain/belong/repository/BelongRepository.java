@@ -10,4 +10,5 @@ import java.util.List;
 public interface BelongRepository extends JpaRepository<Belong, Long> {
 
     List<Belong> findAllByTeamId(Long teamId);
+    List<Belong> findAllByUserId(Long userId);
 }

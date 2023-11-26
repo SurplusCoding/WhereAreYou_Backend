@@ -8,8 +8,6 @@ import surpluscoding.eodego.domain.team.domain.Team;
 import surpluscoding.eodego.domain.team.repository.TeamRepository;
 import surpluscoding.eodego.domain.user.service.UserGetService;
 
-import java.util.Date;
-
 @Service
 @RequiredArgsConstructor
 public class TeamService {

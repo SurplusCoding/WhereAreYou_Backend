@@ -2,6 +2,7 @@ package surpluscoding.eodego.domain.user.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import surpluscoding.eodego.domain.preset.controller.dto.StatusRequestDto;
 import surpluscoding.eodego.domain.user.controller.dto.*;
 import surpluscoding.eodego.domain.user.service.UserGetService;
 import surpluscoding.eodego.domain.user.service.UserService;

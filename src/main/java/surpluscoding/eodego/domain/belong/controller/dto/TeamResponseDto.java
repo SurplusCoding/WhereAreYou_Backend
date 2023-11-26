@@ -1,4 +1,4 @@
-package surpluscoding.eodego.domain.team.controller.dto;
+package surpluscoding.eodego.domain.belong.controller.dto;
 
 import java.time.LocalDateTime;
 

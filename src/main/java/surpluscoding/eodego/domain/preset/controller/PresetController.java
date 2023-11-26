@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import surpluscoding.eodego.domain.preset.controller.dto.PresetResponseDto;
 import surpluscoding.eodego.domain.preset.service.PresetService;
-import surpluscoding.eodego.domain.user.controller.dto.StatusRequestDto;
+import surpluscoding.eodego.domain.preset.controller.dto.StatusRequestDto;
 
 import java.util.List;
 

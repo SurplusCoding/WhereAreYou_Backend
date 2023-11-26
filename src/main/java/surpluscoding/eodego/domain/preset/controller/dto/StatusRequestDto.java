@@ -1,4 +1,4 @@
-package surpluscoding.eodego.domain.user.controller.dto;
+package surpluscoding.eodego.domain.preset.controller.dto;
 
 import surpluscoding.eodego.domain.preset.domain.Preset;
 import surpluscoding.eodego.domain.user.domain.User;

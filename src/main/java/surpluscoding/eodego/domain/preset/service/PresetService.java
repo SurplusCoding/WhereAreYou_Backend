@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import surpluscoding.eodego.domain.preset.controller.dto.PresetResponseDto;
 import surpluscoding.eodego.domain.preset.domain.Preset;
 import surpluscoding.eodego.domain.preset.repository.PresetRepository;
-import surpluscoding.eodego.domain.user.controller.dto.StatusRequestDto;
+import surpluscoding.eodego.domain.preset.controller.dto.StatusRequestDto;
 import surpluscoding.eodego.domain.user.service.UserGetService;
 
 import java.util.List;

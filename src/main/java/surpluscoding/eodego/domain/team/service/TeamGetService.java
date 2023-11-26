@@ -1,5 +1,6 @@
 package surpluscoding.eodego.domain.team.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import surpluscoding.eodego.domain.belong.controller.dto.TeamResponseDto;
 import surpluscoding.eodego.domain.team.repository.TeamRepository;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class TeamGetService {
 
     private final TeamRepository teamRepository;

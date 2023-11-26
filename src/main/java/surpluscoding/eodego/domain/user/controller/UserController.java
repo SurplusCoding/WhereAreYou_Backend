@@ -34,5 +34,4 @@ public class UserController {
     public UserResponseDto updateStatus(@RequestBody StatusRequestDto requestDto) {
         return userService.setStatus(requestDto);
     }
-
 }

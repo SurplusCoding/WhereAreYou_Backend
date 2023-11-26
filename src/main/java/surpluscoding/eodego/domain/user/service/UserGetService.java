@@ -36,4 +36,9 @@ public class UserGetService {
     public String getUserName() {
         return getUser().getName();
     }
+
+    public UserResponseDto get() {
+        Long userId = getUserId();
+        return new UserResponseDto(userRepository.findById(userId).orElseThrow());
+    }
 }

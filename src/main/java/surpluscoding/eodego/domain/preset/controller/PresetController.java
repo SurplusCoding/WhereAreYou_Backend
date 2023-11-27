@@ -1,7 +1,6 @@
 package surpluscoding.eodego.domain.preset.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import surpluscoding.eodego.domain.preset.controller.dto.PresetResponseDto;
 import surpluscoding.eodego.domain.preset.service.PresetService;

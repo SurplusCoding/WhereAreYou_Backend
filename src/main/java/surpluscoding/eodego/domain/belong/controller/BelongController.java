@@ -21,14 +21,10 @@ public class BelongController {
     @GetMapping("/{teamId}/user")
     public List<UserResponseDto> users(@PathVariable Long teamId) {
         return belongService.getUsers(teamId);
-//        List<UserResponseDto> dto = belongService.getUsers(teamId);
-//        return ResponseEntity.ok(dto);
     }
 
     @GetMapping("/team")
     public List<TeamResponseDto> teams() {
         return belongService.getTeams();
-//        List<TeamResponseDto> dto = belongService.getTeams();
-//        return ResponseEntity.ok(dto);
     }
 }

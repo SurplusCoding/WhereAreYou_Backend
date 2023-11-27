@@ -7,7 +7,6 @@ import surpluscoding.eodego.domain.user.controller.dto.UserResponseDto;
 import surpluscoding.eodego.domain.user.domain.User;
 import surpluscoding.eodego.domain.user.repository.UserRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -22,11 +21,11 @@ public class UserGetService {
     }
 
     public List<UserResponseDto> getUsers(List<Long> userIds) {
-        List<UserResponseDto> dto = new ArrayList<>();
-        for(Long id : userIds) {
-            dto.add(new UserResponseDto(userRepository.findById(id).orElseThrow()));
-        }
-        return dto;
+//        List<UserResponseDto> dto = new ArrayList<>();
+//        for(Long id : userIds) {
+//            dto.add(new UserResponseDto(userRepository.findById(id).orElseThrow()));
+//        }
+        return userRepository.findAllByIdIn(userIds).stream().map(UserResponseDto::new).toList();
     }
 
     public Long getUserId() {

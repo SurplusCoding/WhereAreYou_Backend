@@ -14,4 +14,6 @@ public interface BelongRepository extends JpaRepository<Belong, Long> {
     List<Belong> findAllByUserId(Long userId);
 
     void deleteByTeamId(Long teamId);
+
+    void deleteByUserId(Long userId);
 }

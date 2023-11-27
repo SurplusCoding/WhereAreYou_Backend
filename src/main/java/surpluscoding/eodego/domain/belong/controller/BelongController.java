@@ -27,6 +27,11 @@ public class BelongController {
 
     @DeleteMapping("/{teamId}")
     public void exit(@PathVariable Long teamId) {
-        belongService.deleteByTeam(teamId);
+        belongService.deleteByTeamId(teamId);
+    }
+
+    @DeleteMapping("/kick/{userId}")
+    public void kick(@PathVariable Long userId) {
+        belongService.deleteByUserId(userId);
     }
 }

@@ -6,7 +6,7 @@ public record UserResponseDto (
         String name,
         String email,
         String place,
-        String howLong,
+        Long howLong,
         String what
 ) {
     public UserResponseDto(User user) {

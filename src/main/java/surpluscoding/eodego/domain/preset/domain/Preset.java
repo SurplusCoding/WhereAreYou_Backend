@@ -22,13 +22,13 @@ public class Preset {
     private String place;
 
     @Column(nullable = false)
-    private String howLong;
+    private Long howLong;
 
     @Column(nullable = false)
     private String what;
 
     @Builder
-    public Preset(User user, String place, String howLong, String what) {
+    public Preset(User user, String place, Long howLong, String what) {
         this.user = user;
         this.place = place;
         this.howLong = howLong;

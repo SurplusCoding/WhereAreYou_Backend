@@ -25,7 +25,7 @@ public class User {
 
     private String place;
 
-    private String howLong;
+    private Long howLong;
 
     private String what;
 

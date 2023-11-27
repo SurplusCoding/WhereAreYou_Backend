@@ -5,7 +5,7 @@ import surpluscoding.eodego.domain.user.domain.User;
 
 public record StatusRequestDto(
         String place,
-        String howLong,
+        Long howLong,
         String what
 ) {
     public Preset toEntity(User user) {

@@ -9,7 +9,7 @@ import surpluscoding.eodego.domain.preset.controller.dto.StatusRequestDto;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/preset")
 public class PresetController {

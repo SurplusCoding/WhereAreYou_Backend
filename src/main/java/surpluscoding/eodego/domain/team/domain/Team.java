@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Getter
@@ -22,12 +23,12 @@ public class Team {
     private String manager;
 
     @Column(nullable = false)
-    private LocalDateTime createdTime;
+    private String createdDate;
 
     @Builder
     public Team(String name, String manager) {
         this.name = name;
         this.manager = manager;
-        createdTime = LocalDateTime.now();
+        createdDate = LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE);
     }
 }

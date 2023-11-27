@@ -3,6 +3,7 @@ package surpluscoding.eodego.domain.user.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import surpluscoding.eodego.domain.preset.controller.dto.StatusRequestDto;
 import surpluscoding.eodego.domain.user.controller.dto.*;
 import surpluscoding.eodego.domain.user.domain.User;
 import surpluscoding.eodego.domain.user.repository.UserRepository;

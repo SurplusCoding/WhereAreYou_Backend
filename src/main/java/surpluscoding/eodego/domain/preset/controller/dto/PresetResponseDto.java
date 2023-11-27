@@ -5,7 +5,7 @@ import surpluscoding.eodego.domain.preset.domain.Preset;
 public record PresetResponseDto(
         Long presetId,
         String place,
-        String howLong,
+        Long howLong,
         String what
 ) {
     public PresetResponseDto(Preset preset) {

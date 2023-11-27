@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import surpluscoding.eodego.domain.user.controller.dto.StatusRequestDto;
+import surpluscoding.eodego.domain.preset.controller.dto.StatusRequestDto;
 
 @Entity
 @Getter
@@ -25,7 +25,7 @@ public class User {
 
     private String place;
 
-    private String howLong;
+    private Long howLong;
 
     private String what;
 

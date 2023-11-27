@@ -1,10 +1,19 @@
 package surpluscoding.eodego.domain.team.controller.dto;
 
-import java.time.LocalDateTime;
+import surpluscoding.eodego.domain.team.domain.Team;
 
 public record TeamResponseDto(
         Long id,
         String name,
         String manager,
-        LocalDateTime createdTime
-) { }
+        String createdDate
+) {
+    public TeamResponseDto(Team team) {
+        this(
+                team.getId(),
+                team.getName(),
+                team.getManager(),
+                team.getCreatedDate()
+        );
+    }
+}

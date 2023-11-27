@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import surpluscoding.eodego.domain.user.controller.dto.StatusRequestDto;
+import surpluscoding.eodego.domain.preset.controller.dto.StatusRequestDto;
 import surpluscoding.eodego.domain.user.domain.User;
 
 @Entity
@@ -22,13 +22,13 @@ public class Preset {
     private String place;
 
     @Column(nullable = false)
-    private String howLong;
+    private Long howLong;
 
     @Column(nullable = false)
     private String what;
 
     @Builder
-    public Preset(User user, String place, String howLong, String what) {
+    public Preset(User user, String place, Long howLong, String what) {
         this.user = user;
         this.place = place;
         this.howLong = howLong;

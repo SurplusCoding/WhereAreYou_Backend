@@ -1,11 +1,11 @@
-package surpluscoding.eodego.domain.user.controller.dto;
+package surpluscoding.eodego.domain.preset.controller.dto;
 
 import surpluscoding.eodego.domain.preset.domain.Preset;
 import surpluscoding.eodego.domain.user.domain.User;
 
 public record StatusRequestDto(
         String place,
-        String howLong,
+        Long howLong,
         String what
 ) {
     public Preset toEntity(User user) {

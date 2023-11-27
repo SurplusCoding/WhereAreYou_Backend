@@ -28,4 +28,8 @@ public class TeamService {
 
         return belongPostService.addBelong(team).getTeam().getId();
     }
+
+    public void deleteTeam(Long teamId) {
+        teamRepository.deleteById(teamId);
+    }
 }

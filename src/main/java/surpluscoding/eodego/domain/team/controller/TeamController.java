@@ -21,4 +21,9 @@ public class TeamController {
     public Long join(@PathVariable("teamId") Long teamId) {
         return teamService.joinTeam(teamId);
     }
+
+    @DeleteMapping("/{teamId}")
+    public void delete(@PathVariable("teamId") Long teamId) {
+        teamService.deleteTeam(teamId);
+    }
 }

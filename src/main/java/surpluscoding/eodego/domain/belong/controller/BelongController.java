@@ -1,10 +1,7 @@
 package surpluscoding.eodego.domain.belong.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import surpluscoding.eodego.domain.team.controller.dto.TeamResponseDto;
 import surpluscoding.eodego.domain.user.controller.dto.UserResponseDto;
 import surpluscoding.eodego.domain.belong.service.BelongService;
@@ -26,5 +23,10 @@ public class BelongController {
     @GetMapping("/team")
     public List<TeamResponseDto> teams() {
         return belongService.getTeams();
+    }
+
+    @DeleteMapping("/{teamId}")
+    public void exit(@PathVariable Long teamId) {
+        belongService.deleteByTeam(teamId);
     }
 }

@@ -42,4 +42,8 @@ public class BelongService {
 
         return teamGetService.getTeams(teamIds);
     }
+
+    public void deleteByTeam(Long teamId) {
+        belongRepository.deleteByTeamId(teamId);
+    }
 }

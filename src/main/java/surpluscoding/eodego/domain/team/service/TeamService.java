@@ -18,17 +18,11 @@ public class TeamService {
     private final UserGetService userGetService;
     private final TeamRepository teamRepository;
 
-    public Long addTeam(TeamCreateRequestDto requestDto) {
+    public Long createTeam(TeamCreateRequestDto requestDto) {
         String manager = userGetService.getUserName();
         Team team = teamRepository.save(requestDto.toEntity(manager));
 
-        return belongPostService.addBelong(team).getTeam().getId();
-    }
-
-    public Long joinTeam(Long teamId) {
-        Team team = teamRepository.findById(teamId).orElseThrow();
-
-        return belongPostService.addBelong(team).getTeam().getId();
+        return belongPostService.createBelong(team).getTeam().getId();
     }
 
     public void deleteTeam(Long teamId) {

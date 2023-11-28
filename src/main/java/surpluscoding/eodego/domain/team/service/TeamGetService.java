@@ -3,6 +3,7 @@ package surpluscoding.eodego.domain.team.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import surpluscoding.eodego.domain.team.controller.dto.TeamResponseDto;
+import surpluscoding.eodego.domain.team.domain.Team;
 import surpluscoding.eodego.domain.team.repository.TeamRepository;
 
 import java.util.List;
@@ -15,5 +16,9 @@ public class TeamGetService {
 
     public List<TeamResponseDto> getTeams(List<Long> teamIds) {
         return teamRepository.findAllByIdIn(teamIds).stream().map(TeamResponseDto::new).toList();
+    }
+
+    public Team getTeam(Long teamId) {
+        return teamRepository.findById(teamId).orElseThrow();
     }
 }

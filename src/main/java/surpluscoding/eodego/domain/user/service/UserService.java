@@ -42,9 +42,4 @@ public class UserService {
         User user = userGetService.getUser();
         return new UserResponseDto(userRepository.save(user.update(requestDto)));
     }
-
-    public void deleteUser() {
-        Long userId = userGetService.getUserId();
-        userRepository.deleteById(userId);
-    }
 }

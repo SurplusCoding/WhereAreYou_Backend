@@ -2,6 +2,7 @@ package surpluscoding.eodego.domain.belong.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import surpluscoding.eodego.domain.belong.domain.Belong;
 
 import java.util.List;
@@ -13,7 +14,15 @@ public interface BelongRepository extends JpaRepository<Belong, Long> {
 
     List<Belong> findAllByUserId(Long userId);
 
-    void deleteByTeamId(Long teamId);
+    @Transactional
+    void deleteByTeamIdAndUserId(Long teamId, Long userId);
 
+    @Transactional
     void deleteByUserId(Long userId);
+
+    @Transactional
+    void deleteALLByTeamId(Long teamId);
+
+    @Transactional
+    void deleteAllByUserId(Long userId);
 }

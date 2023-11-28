@@ -15,10 +15,10 @@ public class Belong {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne
     private User user;
 
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne
     private Team team;
 
     @Builder

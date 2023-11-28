@@ -44,10 +44,7 @@ public class BelongService {
     }
 
     public void deleteByTeamId(Long teamId) {
-        belongRepository.deleteByTeamId(teamId);
-    }
-
-    public void deleteByUserId(Long userId) {
-        belongRepository.deleteByUserId(userId);
+        Long userId = userGetService.getUserId();
+        belongRepository.deleteByTeamIdAndUserId(teamId, userId);
     }
 }

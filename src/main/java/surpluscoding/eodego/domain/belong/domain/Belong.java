@@ -13,9 +13,9 @@ import surpluscoding.eodego.domain.user.domain.User;
 public class Belong {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
-    @ManyToOne
+    @ManyToOne()
     private User user;
 
     @ManyToOne

@@ -14,11 +14,11 @@ public class TeamController {
 
     @PostMapping
     public Long create(@RequestBody TeamCreateRequestDto requestDto) {
-        return teamService.addTeam(requestDto);
+        return teamService.createTeam(requestDto);
     }
 
-    @PostMapping("/{teamId}")
-    public Long join(@PathVariable("teamId") Long teamId) {
-        return teamService.joinTeam(teamId);
+    @DeleteMapping("/{teamId}")
+    public void delete(@PathVariable("teamId") Long teamId) {
+        teamService.deleteTeam(teamId);
     }
 }

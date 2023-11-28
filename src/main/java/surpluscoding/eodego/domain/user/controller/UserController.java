@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import surpluscoding.eodego.domain.preset.controller.dto.StatusRequestDto;
 import surpluscoding.eodego.domain.user.controller.dto.*;
+import surpluscoding.eodego.domain.user.service.UserDeleteService;
 import surpluscoding.eodego.domain.user.service.UserGetService;
 import surpluscoding.eodego.domain.user.service.UserService;
 
@@ -14,6 +15,7 @@ public class UserController {
 
     private final UserService userService;
     private final UserGetService userGetService;
+    private final UserDeleteService userDeleteService;
 
     @PostMapping("/signup")
     public Long signup(@RequestBody UserRequestDto userRequestDto) {
@@ -33,5 +35,10 @@ public class UserController {
     @PutMapping("/status")
     public UserResponseDto updateStatus(@RequestBody StatusRequestDto requestDto) {
         return userService.setStatus(requestDto);
+    }
+
+    @DeleteMapping
+    public void delete() {
+        userDeleteService.deleteUser();
     }
 }

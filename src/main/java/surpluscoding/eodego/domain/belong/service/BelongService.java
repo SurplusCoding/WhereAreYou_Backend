@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import surpluscoding.eodego.domain.team.controller.dto.TeamResponseDto;
 import surpluscoding.eodego.domain.belong.domain.Belong;
 import surpluscoding.eodego.domain.belong.repository.BelongRepository;
+import surpluscoding.eodego.domain.team.domain.Team;
 import surpluscoding.eodego.domain.team.service.TeamGetService;
 import surpluscoding.eodego.domain.user.controller.dto.UserResponseDto;
 import surpluscoding.eodego.domain.user.service.UserGetService;
@@ -41,5 +42,10 @@ public class BelongService {
         }
 
         return teamGetService.getTeams(teamIds);
+    }
+
+    public void deleteByTeamId(Long teamId) {
+        Long userId = userGetService.getUserId();
+        belongRepository.deleteByTeamIdAndUserId(teamId, userId);
     }
 }

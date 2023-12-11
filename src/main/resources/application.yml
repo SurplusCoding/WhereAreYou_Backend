@@ -18,5 +18,5 @@ jwt:
 server:
   port: 8088
   tomcat:
-    remoteip:
-      host-header:
+    threads:
+      max: 400

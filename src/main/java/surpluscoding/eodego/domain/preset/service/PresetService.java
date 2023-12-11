@@ -27,8 +27,13 @@ public class PresetService {
     }
 
     public List<PresetResponseDto> getPresets() {
-        return presetRepository.findAll().stream()
+        Long userId = userGetService.getUserId();
+        return presetRepository.findAllByUserId(userId).stream()
                 .map(PresetResponseDto::new)
                 .toList();
+    }
+
+    public void deletePreset(Long presetId) {
+        presetRepository.deleteById(presetId);
     }
 }

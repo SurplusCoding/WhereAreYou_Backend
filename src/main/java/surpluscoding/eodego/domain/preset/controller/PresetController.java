@@ -29,4 +29,9 @@ public class PresetController {
     public List<PresetResponseDto> read() {
         return presetService.getPresets();
     }
+
+    @DeleteMapping("/{presetId}")
+    public void delete(@PathVariable("presetId") Long presetId) {
+        presetService.deletePreset(presetId);
+    }
 }
